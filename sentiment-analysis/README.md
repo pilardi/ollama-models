@@ -1,0 +1,24 @@
+These models are customized to provide sentiment analysis in the form a json objects, they also supports aspect sentiment by pre-pending \<aspec\> to the give text.
+```json
+{
+  "type": "object",
+  "properties": {
+    "sentiment": {
+      "description": "A floating-point number representing the sentiment of the text in a scale from -1.0 (negative) to 1.0 (positive), where 0.0 represents neutral sentiment.",
+      "type": "number"
+    },
+    "confidence": {
+      "description": "A floating-point representation of how confident you are bout this sentiment, ranging from 0.0 (not confident) to 1.0 (certain).",
+      "type": "number"
+    },
+    "reasoning": {
+      "description": "An optional brief reasoning of the logic used to determine the numeric sentiment value",
+      "type": "string"
+    }
+  },
+  "required": [
+    "sentiment",
+    "confidence"
+  ]
+}
+```
