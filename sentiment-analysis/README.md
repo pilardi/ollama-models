@@ -1,4 +1,8 @@
-These models are customized to provide sentiment analysis in the form a json objects, they also supports aspect sentiment by pre-pending \<aspec\> to the give text.
+# Sentiment Analyis models
+
+These [models](https://ollama.com/pilardi/sentiment-analysis) are customized to provide sentiment analysis in the form a json objects, they also supports aspect sentiment by pre-pending \<aspec\> to the give text.
+
+## Schema
 ```json
 {
   "type": "object",
@@ -26,9 +30,9 @@ These models are customized to provide sentiment analysis in the form a json obj
   ]
 }
 ```
-# Examples:
+## Examples:
 
-## Regular Sentiment:
+### Regular Sentiment:
 ```
 curl -s http://localhost:11434/api/generate -d '{
   "model": "pilardi/sentiment-analysis:gemma3",
@@ -42,7 +46,7 @@ Response
 {"sentiment":0.90,"confidence":0.95,"reasoning":"The text expresses a strong positive sentiment towards pizza, explicitly stating a preference against pineapple."}
 ```
 
-## Aspect Sentiment:
+### Aspect Sentiment:
 ```
 curl -s http://localhost:11434/api/generate -d '{
   "model": "pilardi/sentiment-analysis:gemma3",
