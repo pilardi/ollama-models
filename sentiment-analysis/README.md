@@ -4,12 +4,16 @@ These models are customized to provide sentiment analysis in the form a json obj
   "type": "object",
   "properties": {
     "sentiment": {
-      "description": "A floating-point number representing the sentiment of the text in a scale from -1.0 (negative) to 1.0 (positive), where 0.0 represents neutral sentiment.",
-      "type": "number"
+      "description": "A floating-point number representing the sentiment of the text, ranging from -1.0 (negative) to 1.0 positive and 0.0 being neutral",
+      "type": "number",
+      "maximum": 1.0,
+      "minimum": -1.0
     },
     "confidence": {
-      "description": "A floating-point representation of how confident you are bout this sentiment, ranging from 0.0 (not confident) to 1.0 (certain).",
-      "type": "number"
+      "description": "A floating-point representation of how confident you are about this sentiment, ranging from 0.0 (not confident) to 1.0 (certain)",
+      "type": "number",
+      "maximum": 1.0,
+      "minimum": 0
     },
     "reasoning": {
       "description": "An optional brief reasoning of the logic used to determine the numeric sentiment value",
