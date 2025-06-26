@@ -22,3 +22,32 @@ These models are customized to provide sentiment analysis in the form a json obj
   ]
 }
 ```
+# Examples:
+
+## Regular Sentiment:
+```
+curl -s http://localhost:11434/api/generate -d '{
+  "model": "pilardi/sentiment-analysis:gemma3",
+  "prompt": "I love my pizza without pinapples",
+  "stream": false,
+  "format": "json"
+}' | jq -c ".response | fromjson"
+```
+Response
+```json
+{"sentiment":0.90,"confidence":0.95,"reasoning":"The text expresses a strong positive sentiment towards pizza, explicitly stating a preference against pineapple."}
+```
+
+## Aspect Sentiment:
+```
+curl -s http://localhost:11434/api/generate -d '{
+  "model": "pilardi/sentiment-analysis:gemma3",
+  "prompt": "<pinapples>I love my pizza without pinapples",
+  "stream": false,
+  "format": "json"
+}' | jq -c ".response | fromjson"
+```
+Response:
+```json
+{"sentiment":-1.0,"confidence":0.95,"reasoning":"The text expresses a clear dislike for pineapple on pizza."}
+```
