@@ -1,5 +1,5 @@
-SHELL:=/bin/bash
-MAKEFLAGS+=--no-print-directory
+SHELL := /bin/bash
+MAKEFLAGS += --no-print-directory
 
 MODEL_FILE_PREFIX?=Modelfile.
 
@@ -28,7 +28,7 @@ help:
 
 .PHONY: list
 list:
-	@echo "Avaliable Models are:"
+	@echo "Available Models are:"
 	@ls $(MODEL_FILE_PREFIX)* 2>/dev/null | sed -E 's,^$(MODEL_FILE_PREFIX)([^\n]+),MODEL_FILE=$(MODEL_FILE_PREFIX)\1 ($(MODEL_PREFIX)\1),' || echo "(No $(MODEL_PREFIX)* found)"
 
 .PHONY: model_name
