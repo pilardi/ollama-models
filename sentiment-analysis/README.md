@@ -1,6 +1,6 @@
-# Sentiment Analyis models
+# Sentiment Analysis Models
 
-These [models](https://ollama.com/pilardi/sentiment-analysis) are customized to provide sentiment analysis in the form a json objects, they also supports aspect sentiment by pre-pending \<aspec\> to the give text.
+These [models](https://ollama.com/pilardi/sentiment-analysis) are customized to provide sentiment analysis in the form of JSON objects. They also support aspect sentiment by prepending `<aspect>` to the given text.
 
 ## Schema
 ```json
@@ -8,7 +8,7 @@ These [models](https://ollama.com/pilardi/sentiment-analysis) are customized to 
   "type": "object",
   "properties": {
     "sentiment": {
-      "description": "A floating-point number representing the sentiment of the text, ranging from -1.0 (negative) to 1.0 positive and 0.0 being neutral",
+      "description": "A floating-point number representing the sentiment of the text, ranging from -1.0 (negative) to 1.0 (positive), with 0.0 being neutral",
       "type": "number",
       "maximum": 1.0,
       "minimum": -1.0
@@ -36,7 +36,7 @@ These [models](https://ollama.com/pilardi/sentiment-analysis) are customized to 
 ```
 curl -s http://localhost:11434/api/generate -d '{
   "model": "pilardi/sentiment-analysis:gemma3",
-  "prompt": "I love my pizza without pinapples",
+  "prompt": "I love my pizza without pineapples",
   "stream": false,
   "format": "json"
 }' | jq -c ".response | fromjson"
@@ -50,7 +50,7 @@ Response
 ```
 curl -s http://localhost:11434/api/generate -d '{
   "model": "pilardi/sentiment-analysis:gemma3",
-  "prompt": "<pinapples>I love my pizza without pinapples",
+  "prompt": "<pineapples>I love my pizza without pineapples",
   "stream": false,
   "format": "json"
 }' | jq -c ".response | fromjson"
